@@ -1,0 +1,67 @@
+## Player stats and items. 
+
+name = "Sir Caelan"
+level = 5
+dnd_class = "Paladin"
+race = "Human"
+max_hp = 49
+current_hp = 49
+ac = 18  # Plate armor + shield
+attack_bonus = 7  # Strength + proficiency
+damage = "1d8+4"  # Longsword (Strength)
+divine_smite = "2d8 per spell slot"
+lay_on_hands = 25  # Total HP pool for healing
+spells = ["Bless", "Shield of Faith", "Cure Wounds", "Protection from Evil"]
+
+abilities = {"strength": 18,"dexterity": 10,"constitution": 14,"intelligence": 10,"wisdom": 12,"charisma": 16}
+features = ["Divine Sense (5/day)","Lay on Hands","Divine Smite","Aura of Protection (+3 saves)","Sacred Weapon (from Oath of Devotion)"]
+
+inventory = {
+    "weapons": ["Longsword", "Heavy Crossbow"],
+    "armor": ["Plate Armor", "Shield", "Cloak of Protection"],
+    "magic_items": ["Sunblade", "Potion of Healing x3", "Scroll of Lesser Restoration"],
+    "tools": ["Rope (50 ft)", "Torches x5", "Holy Symbol", "Rations x5"],
+    "flavor": ["Journal of Vows", "Cultist Pendant", "Locket from Sister"]}
+
+## Start of the story
+print("Sir Caelan, a lone paladin sworn to the Oath of Devotion, arrives at the base of Xonthal’s Tower, where rumors tell of the Cult of the Dragon using its warped magical halls for dark experiments. ")
+print("The surrounding hedge maze on the horizon pulses with chaotic magic, but Caelan’s divine resolve guides him forward. ")
+print()
+
+## The Maze Entrance
+print("Chapter 1: The Maze Entrance")
+print()
+print("The sun is setting as Sir Caelan arrives at the base of Xonthal’s Tower. Before him stretches a massive hedge maze, taller than a man and humming with strange magical energy. He grips his ")
+print("sword and steps forward—the path behind him sealing with thick vines.")
+print()
+print("After several winding turns, the path splits in three directions. Each way looks identical, but faint glimmers of light flicker down one of them.")
+print("Which path do you choose (1, 2, or 3)?")
+print("1. Left path")
+print("2. Middle path")
+print("3. Right path")
+choice = input()
+
+while choice != "1" and choice != "2" and choice != "3":
+    print("The gods have denied your request. Please try again.")
+    choice = input()
+
+if choice == "1":
+    print("A trap has been detonated! Thorns lash out and you take 5 damage. ")
+    current_hp = current_hp - 5
+    print(f"Your current HP is {current_hp}.")
+elif choice == "2":
+    print("You continue down the middle path and notice the sky getting darker and darker while it seems you haven't gotten any closer to the tower... And, wait, doesn't this split path look familiar? ")
+    print("It seems like the path you chose might have been an illusion loop. You decide to choose a different path. Which will it be, the left path (1), or the right path (2)? ")
+    retry_choice = input()
+    while retry_choice != "1" and retry_choice != "2":
+        print("The gods have denied your request. Please try again. ")
+        retry_choice = input()
+    if retry_choice == "1":
+        print("A trap has been detonated! Thorns lash out and you take 5 damage." )
+        current_hp = current_hp - 5
+        print(f"Your current HP is {current_hp}.")
+        print("It seems like there's only one last option to continue forward, so Sir Caelan proceeds down the right path and gets deeper into the maze...")
+    else:
+        print("You proceed deeper into the maze...")
+else:
+    print("You proceed deeper into the maze...")
